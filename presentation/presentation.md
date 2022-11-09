@@ -32,6 +32,7 @@ E se a gente pensasse Sistemas para a Internet com o intuito de mudar a vida das
 <!-- slide  -->
 Primeiro passo
 ![screenshot](./screenshot.png)
+https://github.com/andregmdias/stellantis_challenge
 WIP 🚧
 
 <!-- slide  -->
