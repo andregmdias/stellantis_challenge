@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
+import Navbar from 'react-bootstrap/Navbar'
 import uuid from 'react-uuid';
 import env from 'react-dotenv';
 
 const containerStyle = {
   width: '800px',
-  height: '800px'
+  height: '800px',
+  margin: '32px auto'
 };
 
 function Map() {
@@ -60,24 +62,34 @@ function Map() {
   if (!isLoaded) return null;
 
   return (
-    <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={{ lat, lng }}
-      zoom={18}
-      onUnmount={onUnmount}
-      onClick={createMarkersOnClick}
-    >
-      {
-        markers.map((marker) =>
-          <Marker
-            key={uuid()}
-            position={{ lat: marker.lat, lng: marker.lng }}
-            onClick={removeMarkerOnClick}
-          />
-        )
-      }
-      <></>
-    </GoogleMap>
+    <>
+    
+      <Navbar bg="primary" style={{
+        padding: '16px',
+      }}>
+        <h1 className='text-white'>
+          Alerta Acessível
+        </h1>
+      </Navbar>
+
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={{ lat, lng }}
+        zoom={18}
+        onUnmount={onUnmount}
+        onClick={createMarkersOnClick}
+      >
+        {
+          markers.map((marker) =>
+            <Marker
+              key={uuid()}
+              position={{ lat: marker.lat, lng: marker.lng }}
+              onClick={removeMarkerOnClick}
+            />
+          )
+        }
+      </GoogleMap>
+    </>
   )
 }
 
